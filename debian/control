@@ -1,15 +1,24 @@
-Source: template-repository
-Section: unknown
+Source: golang-github-google-go-dap
+Maintainer: Debian Go Packaging Team <team+pkg-go@tracker.debian.org>
+Uploaders: Shengjing Zhu <zhsj@debian.org>,
+Section: golang
+Testsuite: autopkgtest-pkg-go
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Build-Depends: debhelper-compat (= 13),
+               dh-golang,
+               golang-any,
+Standards-Version: 4.6.2
+Vcs-Browser: https://salsa.debian.org/go-team/packages/golang-github-google-go-dap
+Vcs-Git: https://salsa.debian.org/go-team/packages/golang-github-google-go-dap.git
+Homepage: https://github.com/google/go-dap
+Rules-Requires-Root: no
+XS-Go-Import-Path: github.com/google/go-dap
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: golang-github-google-go-dap-dev
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends},
+Breaks: delve (<< 1.21.0~),
+Description: Go implementation of the Debug Adapter Protocol (library)
+ The Debug Adapter Protocol defines the protocol used between an editor
+ or IDE and a debugger or runtime.
